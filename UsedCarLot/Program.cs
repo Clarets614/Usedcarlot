@@ -1,4 +1,5 @@
 ﻿
+using System.Linq;
 using UsedCarLot;
 
 
@@ -43,7 +44,51 @@ static void Inventory (List<Car> carList)
 
 static void AddCar(List <Car> carInv)
 {
-    carInv.Add(new Car("test", "test", 2024, 500, 7));
+
+    int invNum = carInv.Max(c => c.inventory) + 1;
+    //carInv.Add(new Car("test", "test", 2024, 500, 7));
+    Console.WriteLine("Please enter the make of the car you would like to add");
+    string make = Console.ReadLine().Trim();
+    Console.WriteLine("Please enter the model of the car you would like to add");
+    string model = Console.ReadLine().Trim();
+    int year;
+    do
+    {
+        Console.WriteLine("Please enter the year for the car you would like to add");
+        if (int.TryParse(Console.ReadLine(), out year)) break;
+    } while (true);
+    decimal price;
+    do
+    {
+        Console.WriteLine("Please enter the price of the car you would like to add");
+        if(decimal.TryParse(Console.ReadLine(),out price)) break;
+    } while (true);
+    do
+    {
+        Console.WriteLine("Is this a used car? y/n");
+        string input = Console.ReadLine().Trim().ToLower();
+        if(input == "y")
+        {
+            
+            double miles;
+            do
+            {
+                Console.WriteLine("How many miles are on the car?");
+                if(double.TryParse(Console.ReadLine(),out miles))
+                {
+                    carInv.Add(new UsedCar(make, model, year, price, invNum, miles));
+                    break;
+                }
+            } while(true);
+        }
+        else if(input == "n")
+        {
+            carInv.Add(new Car(make, model, year, price, invNum));
+            break;
+        }
+
+    }while(true);
+
 
 }
 
