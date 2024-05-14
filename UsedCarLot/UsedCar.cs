@@ -10,8 +10,8 @@ namespace UsedCarLot
     {
         public double Mileage { get; set; }
 
-        public UsedCar(string _make, string _model, int _year, decimal _price, double _mileage)
-            : base(_make, _model, _year, _price)
+        public UsedCar(string _make, string _model, int _year, decimal _price, int _inventory, double _mileage)
+            : base(_make, _model, _year, _price, _inventory)
         { 
             Mileage = _mileage;
         }

@@ -13,15 +13,17 @@ namespace UsedCarLot
         public string model { get; set; }
         public int year { get; set; }
         public decimal price { get; set; }
+        public int inventory { get; set; }
+
 
         //constructor 
-        public Car (string _make, string _model, int _year, decimal _price)
+        public Car (string _make, string _model, int _year, decimal _price, int _inventory)
         {
             make = _make;
             model = _model;
             year = _year;
             price = _price;
-
+            inventory = _inventory;
         }
 
         public Car()
