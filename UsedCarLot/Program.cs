@@ -1,6 +1,8 @@
 ﻿
 using UsedCarLot;
 
+
+
 List<Car> carList = new List<Car>() {
     new UsedCar("Batmobile", "Wayne Enterprises", 2024, 10000000, 200000),
     new Car("Buick", "LeSabre", 1989, 2000),
@@ -10,7 +12,35 @@ List<Car> carList = new List<Car>() {
     new UsedCar("Honda", "Civic", 2011, 10000, 115000)
 };
 
-foreach(var car in carList)
+Inventory(carList);
+
+Console.WriteLine("Please pick you the make of your car.");
+
+string userInput = Console.ReadLine();
+
+
+
+
+
+
+
+
+
+
+
+
+//Methods
+
+static void Inventory (List<Car> carList)
+
 {
-    Console.WriteLine(car.ToString());
+    foreach (var car in carList)
+    {
+        Console.WriteLine(car.ToString());
+    }
 }
+
+
+
+
+
